@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Поиск</string>
+    <string name="playlists">Плейлисты</string>
+    <string name="favourite">Избранные</string>
+    <string name="settings">Настройки</string>
+</resources>

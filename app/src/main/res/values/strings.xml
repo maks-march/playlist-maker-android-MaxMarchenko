@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">PlaylistMaker</string>
-    <string name="title">Playlist maker</string>
-    <string name="search">Поиск</string>
-    <string name="playlists">Плейлисты</string>
-    <string name="favourite">Избранные</string>
-    <string name="settings">Настройки</string>
+    <string name="app_name" translatable="false">PlaylistMaker</string>
+    <string name="title" translatable="false">Playlist maker</string>
+    <string name="favourite">Favourite</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="playlists">Playlists</string>
 </resources>
