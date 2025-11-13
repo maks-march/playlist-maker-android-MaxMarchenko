@@ -6,10 +6,12 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,22 +19,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import data.NavigationButton
-import data.boldTextStyle
+import com.example.playlistmaker.composables.ButtonsList
+import com.example.playlistmaker.composables.Screen
+import com.example.playlistmaker.data.NavigationButton
+import com.example.playlistmaker.ui.theme.IsDarkTheme
+import com.example.playlistmaker.ui.theme.PlaylistMakerTheme
+import com.example.playlistmaker.ui.theme.ThemeViewModel
+import kotlin.getValue
 
 class MainActivity : ComponentActivity() {
+    private val viewModel: ThemeViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-             CommonMainScreen(
-                 stringResource(R.string.title)
-             ) {
-                CommonButtonsList(
-                    navigationItems,
-                    onClick = { item -> intentActivity(item)},
-                    content = { item -> NavigationInfo(item)}
-                )
+            PlaylistMakerTheme(
+                IsDarkTheme(viewModel)
+            ) {
+                Screen(
+                    title = stringResource(R.string.app_name),
+                    isMain = true
+                ) {
+                    ButtonsList(
+                        navigationItems,
+                        onClick = { item -> intentActivity(item) },
+                        content = { item -> NavigationInfo(item) }
+                    )
+                }
             }
         }
     }
@@ -87,7 +101,7 @@ class MainActivity : ComponentActivity() {
             )
             Text (
                 stringResource(info.nameId),
-                style = boldTextStyle,
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier
                     .padding(10.dp)
                     .weight(2f)
