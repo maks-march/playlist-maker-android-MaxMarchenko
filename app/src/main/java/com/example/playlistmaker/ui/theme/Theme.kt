@@ -39,12 +39,6 @@ fun PlaylistMakerTheme(
         typography = Typography,
         content = content
     )
-
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
-    )
 }
 
 fun IsDarkTheme(theme: Theme): Boolean {

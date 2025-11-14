@@ -21,6 +21,7 @@ import com.example.playlistmaker.ui.theme.Typography
 fun Screen(
     title: String,
     isMain: Boolean = false,
+    onNavigateBack: () -> Unit = {},
     bodyContent: @Composable () -> Unit
 ) {
     val backgroundColor = if (isMain) Blue else MaterialTheme.colorScheme.primary
@@ -34,7 +35,8 @@ fun Screen(
     ) {
         Header(
             title,
-            isMain
+            isMain,
+            onNavigateBack
         )
         Body(bodyContent)
     }
