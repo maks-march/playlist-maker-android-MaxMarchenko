@@ -10,5 +10,10 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 
 val Blue = Color(0xFF3772E7)
+val LightBlue = Color(55,114,231,48)
+val AlmostBlack = Color(0xFF1A1B22)
+val White = Color(0xFFffffff)
+val Black = Color(0xFF000000)
 
-val Black = Color(0xFF1A1B22)
+var LightGray = Color(0xFFE6E8EB)
+var Gray = Color(0xFFAEAFB4)

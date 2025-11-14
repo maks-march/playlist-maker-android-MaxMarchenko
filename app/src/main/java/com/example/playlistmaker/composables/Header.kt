@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.playlistmaker.R
+import com.example.playlistmaker.ui.theme.White
 
 @Composable
 fun Header(
@@ -40,7 +41,7 @@ fun MainHeader(title: String) {
         Text (
             title,
             style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.primary,
+            color = White,
             modifier = Modifier
                 .padding(10.dp)
                 .weight(2f)
@@ -54,7 +55,7 @@ fun SecondaryHeader(title: String) {
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp, 10.dp)
+            .padding(8.dp, 10.dp)
         ,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -64,12 +65,13 @@ fun SecondaryHeader(title: String) {
             Icon(
                 painterResource(R.drawable.arrow_backwards),
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.secondary
+                tint = MaterialTheme.colorScheme.onPrimary
             )
         }
         Text (
             title,
             style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier
                 .padding(10.dp)
                 .weight(2f)

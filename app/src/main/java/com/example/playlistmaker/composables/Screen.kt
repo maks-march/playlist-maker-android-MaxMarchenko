@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.playlistmaker.R
+import com.example.playlistmaker.ui.theme.Blue
 import com.example.playlistmaker.ui.theme.Typography
 
 @Composable
@@ -22,7 +23,7 @@ fun Screen(
     isMain: Boolean = false,
     bodyContent: @Composable () -> Unit
 ) {
-    val backgroundColor = if (isMain) MaterialTheme.colorScheme.background else MaterialTheme.colorScheme.primary
+    val backgroundColor = if (isMain) Blue else MaterialTheme.colorScheme.primary
     Column (
         modifier = Modifier
             .fillMaxSize()

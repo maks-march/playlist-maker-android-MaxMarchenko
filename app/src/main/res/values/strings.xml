@@ -5,4 +5,13 @@
     <string name="settings">Settings</string>
     <string name="search">Search</string>
     <string name="playlists">Playlists</string>
+    <string name="theme_button">Dark theme</string>
+    <string name="share_button">Share this app</string>
+    <string name="support_button">Support</string>
+    <string name="agreement_button">User agreement</string>
+    <string name="developer_email" translatable="false">1maks_2055@mail.ru</string>
+    <string name="email_subject">A message to the developers of the Playlist Maker app</string>
+    <string name="email_body">Thanks to the developers for a cool app!</string>
+    <string name="agreement_url" translatable="false">https://yandex.ru/legal/practicum_offer/</string>
+    <string name="share_message">This is such a cool app I have!</string>
 </resources>

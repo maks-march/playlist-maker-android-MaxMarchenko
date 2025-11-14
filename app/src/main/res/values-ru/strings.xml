@@ -4,4 +4,11 @@
     <string name="playlists">Плейлисты</string>
     <string name="favourite">Избранные</string>
     <string name="settings">Настройки</string>
+    <string name="theme_button">Темная тема</string>
+    <string name="share_button">Поделиться приложением</string>
+    <string name="support_button">Написать в поддержку</string>
+    <string name="agreement_button">Пользовательское соглашение</string>
+    <string name="email_subject">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
+    <string name="email_body">Спасибо разработчикам и разработчицам за крутое приложение!</string>
+    <string name="share_message">Вот какое крутое приложение у меня есть!</string>
 </resources>

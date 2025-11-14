@@ -16,6 +16,14 @@
             android:exported="true" />
 
         <activity
+            android:name=".PlaylistsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".FavouritesActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".SettingsActivity"
             android:exported="true" />
 
