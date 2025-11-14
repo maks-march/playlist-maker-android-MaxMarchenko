@@ -1,7 +1,5 @@
 package com.example.playlistmaker.composables
 
-import android.app.Activity
-import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,12 +18,16 @@ import com.example.playlistmaker.ui.theme.White
 @Composable
 fun Header(
     title: String,
-    isMain: Boolean = false
+    isMain: Boolean = false,
+    onNavigateBack: () -> Unit
 ) {
     if (isMain) {
         MainHeader(title)
     } else {
-        SecondaryHeader(title)
+        SecondaryHeader(
+            title,
+            onNavigateBack
+        )
     }
 }
 
@@ -50,8 +52,10 @@ fun MainHeader(title: String) {
 }
 
 @Composable
-fun SecondaryHeader(title: String) {
-    var currentActivity = (LocalActivity.current as Activity)
+fun SecondaryHeader(
+    title: String,
+    onNavigateBack: () -> Unit
+) {
     Row (
         modifier = Modifier
             .fillMaxWidth()
@@ -60,7 +64,7 @@ fun SecondaryHeader(title: String) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconButton(
-            onClick = { currentActivity.finish() }
+            onClick = { onNavigateBack() }
         ) {
             Icon(
                 painterResource(R.drawable.arrow_backwards),
