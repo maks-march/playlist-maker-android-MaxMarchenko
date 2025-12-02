@@ -13,20 +13,7 @@
         android:theme="@style/Theme.PlaylistMaker">
 
         <activity
-            android:name="com.practicum.playlistmaker.UI.main.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.PlaylistMaker">
-        </activity>
-
-        <activity
-            android:name="com.practicum.playlistmaker.UI.track.TrackActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.PlaylistMaker">
-        </activity>
-        <activity
-            android:name="com.practicum.playlistmaker.UI.track.AllTracksActivity"
+            android:name=".UI.activities.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PlaylistMaker">
@@ -35,6 +22,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".UI.activities.track.TrackActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PlaylistMaker">
+        </activity>
+        <activity
+            android:name=".UI.activities.track.AllTracksActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PlaylistMaker">
         </activity>
     </application>
 

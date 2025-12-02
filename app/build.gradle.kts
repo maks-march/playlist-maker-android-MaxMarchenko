@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.practicum.playlistmaker"
+    namespace = "ru.practicum.playlistmaker"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.practicum.playlistmaker"
+        applicationId = "ru.practicum.playlistmaker"
         minSdk = 29
         targetSdk = 36
         versionCode = 1
