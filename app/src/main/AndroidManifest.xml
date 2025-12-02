@@ -13,7 +13,20 @@
         android:theme="@style/Theme.PlaylistMaker">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.practicum.playlistmaker.UI.main.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PlaylistMaker">
+        </activity>
+
+        <activity
+            android:name="com.practicum.playlistmaker.UI.track.TrackActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.PlaylistMaker">
+        </activity>
+        <activity
+            android:name="com.practicum.playlistmaker.UI.track.AllTracksActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PlaylistMaker">

@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.playlistmaker"
+    namespace = "com.practicum.playlistmaker"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.playlistmaker"
+        applicationId = "com.practicum.playlistmaker"
         minSdk = 29
         targetSdk = 36
         versionCode = 1
@@ -42,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.coil.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -58,6 +59,7 @@ dependencies {
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation("androidx.navigation:navigation-compose:2.9.6")
+    implementation(libs.androidx.tracing.perfetto.handshake)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
