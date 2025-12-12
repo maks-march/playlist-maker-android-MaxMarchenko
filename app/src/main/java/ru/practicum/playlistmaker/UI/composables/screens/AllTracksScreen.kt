@@ -22,38 +22,38 @@ import ru.practicum.playlistmaker.presentation.SearchViewModel
 
 @Composable
 fun AllTracksScreen(modifier: Modifier, viewModel: SearchViewModel) {
-    val screenState by viewModel.allTracksScreenState.collectAsState()
-
-    LaunchedEffect(key1 = true) {
-        viewModel.fetchData()
-    }
-    when (screenState) {
-        is SearchState.Initial -> {}
-        is SearchState.Loading -> {
-            Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
-        }
-
-        is SearchState.Success -> {
-            val tracks = (screenState as SearchState.Success).foundList
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(tracks.size) { index ->
-                    TrackListItem(track = tracks[index])
-                    HorizontalDivider(thickness = 0.5.dp)
-                }
-            }
-        }
-
-        is SearchState.Error -> {
-            val error = (screenState as SearchState.Error).error
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text("Ошибка: $error", color = Color.Red)
-            }
-        }
-    }
+//    val screenState by viewModel.allTracksScreenState.collectAsState()
+//
+//    LaunchedEffect(key1 = true) {
+//        viewModel.fetchData()
+//    }
+//    when (screenState) {
+//        is SearchState.Initial -> {}
+//        is SearchState.Loading -> {
+//            Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+//                CircularProgressIndicator()
+//            }
+//        }
+//
+//        is SearchState.Success -> {
+//            val tracks = (screenState as SearchState.Success).foundList
+//            LazyColumn(
+//                modifier = Modifier.fillMaxSize(),
+//                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+//                verticalArrangement = Arrangement.spacedBy(12.dp)
+//            ) {
+//                items(tracks.size) { index ->
+//                    TrackListItem(track = tracks[index])
+//                    HorizontalDivider(thickness = 0.5.dp)
+//                }
+//            }
+//        }
+//
+//        is SearchState.Fail -> {
+//            val error = (screenState as SearchState.Fail).error
+//            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+//                Text("Ошибка: $error", color = Color.Red)
+//            }
+//        }
+//    }
 }
