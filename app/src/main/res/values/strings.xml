@@ -14,4 +14,6 @@
     <string name="email_body">Thanks to the developers for a cool app!</string>
     <string name="agreement_url" translatable="false">https://yandex.ru/legal/practicum_offer/</string>
     <string name="share_message">This is such a cool app I have!</string>
+    <string name="search_hint">Enter text for search</string>
+    <string name="error">Error</string>
 </resources>

@@ -35,11 +35,20 @@ val Typography = Typography(
         lineHeight = 32.sp,
         letterSpacing = 0.sp
     ),
-    labelSmall = TextStyle(
+    labelMedium = TextStyle(
+        color = LightGray,
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
-        lineHeight = 24.sp,
+        lineHeight = 16.sp,
         letterSpacing = 0.5.sp
+    ),
+    labelSmall = TextStyle(
+        color = LightGray,
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Medium,
+        fontSize = 12.sp,
+        lineHeight = 12.sp,
+        letterSpacing = 0.2.sp
     )
 )

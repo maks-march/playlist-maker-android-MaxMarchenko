@@ -13,7 +13,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.practicum.playlistmaker.R
-import ru.practicum.playlistmaker.UI.composables.ButtonsList
+import ru.practicum.playlistmaker.UI.composables.ItemsList
 import ru.practicum.playlistmaker.UI.composables.Screen
 import ru.practicum.playlistmaker.data.NavigationInfo
 import ru.practicum.playlistmaker.UI.navigation.Screens
@@ -25,7 +25,7 @@ fun MainScreen(
     onNavigateToFavourite: () -> Unit,
     onNavigateToSettings: () -> Unit
 ) {
-    val navigationItems = setOf(
+    val navigationItems = listOf(
         NavigationInfo(
             iconId = R.drawable.search_icon,
             nameId = R.string.search,
@@ -53,7 +53,7 @@ fun MainScreen(
         isMain = true,
         onNavigateBack = {}
     ) {
-        ButtonsList(
+        ItemsList(
             navigationItems,
             onClick = { item ->
                 when (item.screen) {
@@ -65,14 +65,14 @@ fun MainScreen(
                 }
             }
         ) { item ->
-            NavigationInfo(item)
+            NavigationButton(item)
         }
     }
 }
 
 
 @Composable
-private fun NavigationInfo(info: NavigationInfo) {
+private fun NavigationButton(info: NavigationInfo) {
     Row (
         modifier = Modifier
             .fillMaxWidth()

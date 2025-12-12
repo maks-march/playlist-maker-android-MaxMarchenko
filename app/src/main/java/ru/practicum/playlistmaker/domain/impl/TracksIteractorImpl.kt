@@ -6,8 +6,8 @@ import ru.practicum.playlistmaker.domain.models.TrackModel
 class TracksInteractorImpl(
     private val tracksRepository: TracksRepository
 ) : TracksInteractor  {
-    override fun loadTrackData(trackId: String, onComplete: (TrackModel) -> Unit) {
-        var track = tracksRepository.searchTracks(trackId)[0]
+    override fun loadTrackData(trackId: Int, onComplete: (TrackModel) -> Unit) {
+        var track = tracksRepository.getTrackById(trackId)
         val trackModel = TrackModel(
             id = trackId,
             name = track.trackName,

@@ -1,4 +1,4 @@
-package ru.practicum.playlistmaker.UI.activities.main
+package ru.practicum.playlistmaker.UI.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,12 +12,12 @@ import ru.practicum.playlistmaker.UI.theme.IsDarkTheme
 import ru.practicum.playlistmaker.UI.theme.PlaylistMakerTheme
 import ru.practicum.playlistmaker.UI.theme.ThemeManager
 import ru.practicum.playlistmaker.presentation.SearchViewModel
+import ru.practicum.playlistmaker.presentation.TrackViewModel
 
 class MainActivity : ComponentActivity() {
     private val searchViewModel by viewModels<SearchViewModel>{
-        SearchViewModel.getViewModelFactory()
+        SearchViewModel.Companion.getViewModelFactory()
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

@@ -1,41 +1,37 @@
 package ru.practicum.playlistmaker.data.network
 
+import ru.practicum.playlistmaker.creator.Storage
+import ru.practicum.playlistmaker.data.dto.TracksGetRequest
 import ru.practicum.playlistmaker.domain.api.NetworkClient
-import ru.practicum.playlistmaker.data.dto.BaseResponse
-import ru.practicum.playlistmaker.data.dto.TrackDto
 import ru.practicum.playlistmaker.data.dto.TracksSearchRequest
-import ru.practicum.playlistmaker.data.dto.TracksSearchResponse
+import ru.practicum.playlistmaker.data.dto.TracksResponse
 
-class NetworkClientImpl : NetworkClient {
-    override fun doRequest(dto: Any): BaseResponse {
-        return when (dto) {
+class NetworkClientImpl(private val storage: Storage) : NetworkClient {
+
+    override fun doRequest(request: Any): TracksResponse {
+        when (request) {
             is TracksSearchRequest -> {
-                TracksSearchResponse(
-                    results = listOf(
-                        TrackDto(
-                            trackName = "Bohemian Rhapsody",
-                            artistName = "Queen",
-                            trackTimeMillis = 354000 // 5:54
-                        ),
-                        TrackDto(
-                            trackName = "Hotel California",
-                            artistName = "Eagles",
-                            trackTimeMillis = 391000 // 6:31
-                        ),
-                        TrackDto(
-                            trackName = "Stairway to Heaven",
-                            artistName = "Led Zeppelin",
-                            trackTimeMillis = 482000 // 8:02
-                        )
-                    )
-                ).apply {
-                    resultCode = 200
+                if (request.expression == "") {
+                    var resultList = storage.getAll()
+                    return TracksResponse(resultList).apply { resultCode = 200 }
                 }
+
+                val resultList = storage.search(request.expression)
+                if (resultList.size == 0)
+                    return TracksResponse(resultList).apply { resultCode = 404 }
+                return TracksResponse(resultList).apply { resultCode = 200 }
+            }
+            is TracksGetRequest -> {
+                var resultList = listOf(storage.get(request.id))
+                if (resultList.size == 0)
+                    return TracksResponse(resultList).apply { resultCode = 404 }
+                return TracksResponse(resultList).apply { resultCode = 200 }
             }
             else -> {
-                // Для других запросов возвращаем базовый ответ с ошибкой
-                BaseResponse(resultCode = 404)
+                return TracksResponse(emptyList())
             }
         }
+
+
     }
 }

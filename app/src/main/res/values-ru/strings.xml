@@ -11,4 +11,6 @@
     <string name="email_subject">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
     <string name="email_body">Спасибо разработчикам и разработчицам за крутое приложение!</string>
     <string name="share_message">Вот какое крутое приложение у меня есть!</string>
+    <string name="search_hint">Введите текст для поиска</string>
+    <string name="error">Ошибка</string>
 </resources>

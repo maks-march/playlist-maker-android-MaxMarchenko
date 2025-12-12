@@ -28,6 +28,10 @@ fun navigateBack(navController: NavController) {
     navController.popBackStack()
 }
 
+fun navigateToTrack(navController: NavController, trackId: Int) {
+    navController.navigate("${Screens.TRACK.name}/$trackId")
+}
+
 fun navigateWithClearStack(
     navController: NavController,
     destination: Screens

@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import ru.practicum.playlistmaker.domain.api.TracksRepository
 import ru.practicum.playlistmaker.domain.models.SearchState
-import java.io.IOException
 
 class SearchViewModel(
     private val tracksRepository: TracksRepository
@@ -25,10 +24,14 @@ class SearchViewModel(
                 _searchScreenState.update { SearchState.Searching }
                 val list = tracksRepository.searchTracks(expression = whatSearch)
                 _searchScreenState.update { SearchState.Success(foundList = list) }
-            } catch (e: IOException){
+            } catch (e: Exception){
                 _searchScreenState.update { SearchState.Fail(e.message.toString()) }
             }
         }
+    }
+
+    fun clear() {
+        _searchScreenState.update { SearchState.Initial }
     }
 
     companion object {

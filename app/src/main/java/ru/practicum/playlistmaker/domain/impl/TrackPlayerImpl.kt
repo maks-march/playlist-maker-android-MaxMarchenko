@@ -1,10 +1,10 @@
 package ru.practicum.playlistmaker.domain.impl
 
-import ru.practicum.playlistmaker.UI.activities.track.TrackPlayer
+import ru.practicum.playlistmaker.UI.interfaces.TrackPlayer
 
 class TrackPlayerImpl: TrackPlayer {
     override fun play(
-        trackId: String,
+        trackId: Int,
         statusObserver: TrackPlayer.StatusObserver
     ) {
         statusObserver.onPlay()
@@ -17,15 +17,15 @@ class TrackPlayerImpl: TrackPlayer {
         statusObserver.onStop()
     }
 
-    override fun pause(trackId: String) {
+    override fun pause(trackId: Int) {
         TODO("Not yet implemented")
     }
 
-    override fun seek(trackId: String, position: Float) {
+    override fun seek(trackId: Int, position: Float) {
         TODO("Not yet implemented")
     }
 
-    override fun release(trackId: String) {
+    override fun release(trackId: Int) {
         TODO("Not yet implemented")
     }
 }

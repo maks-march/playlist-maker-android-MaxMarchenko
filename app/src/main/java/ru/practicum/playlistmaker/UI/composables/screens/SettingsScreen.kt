@@ -11,33 +11,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.practicum.playlistmaker.R
-import ru.practicum.playlistmaker.UI.composables.ButtonsList
+import ru.practicum.playlistmaker.UI.composables.ItemsList
 import ru.practicum.playlistmaker.UI.composables.Screen
 import ru.practicum.playlistmaker.UI.composables.ThemeSwitch
-import ru.practicum.playlistmaker.UI.activities.SettingButton
-import ru.practicum.playlistmaker.UI.activities.SettingsContextManager
+import ru.practicum.playlistmaker.data.ButtonElement
+import ru.practicum.playlistmaker.presentation.SettingsContextManager
 
 @Composable
 fun SettingsScreen(
     onNavigateBack: () -> Unit,
     settingsContextManager: SettingsContextManager
 ) {
-    val settingButtons = setOf(
-        SettingButton(
+    val settingButtons = listOf(
+        ButtonElement(
             icon = { it -> ThemeSwitch() },
             nameId = R.string.theme_button
         ),
-        SettingButton(
+        ButtonElement(
             iconId = R.drawable.share_icon,
             nameId = R.string.share_button,
             task = { settingsContextManager.shareApp() }
         ),
-        SettingButton(
+        ButtonElement(
             iconId = R.drawable.support_icon,
             nameId = R.string.support_button,
             task = { settingsContextManager.callSupport() }
         ),
-        SettingButton(
+        ButtonElement(
             iconId = R.drawable.arrow_icon,
             nameId = R.string.agreement_button,
             task = { settingsContextManager.openUserAgreement() }
@@ -48,7 +48,7 @@ fun SettingsScreen(
         stringResource(R.string.settings),
         onNavigateBack = onNavigateBack
     ) {
-        ButtonsList(
+        ItemsList(
             settingButtons,
             onClick = { item -> item.task() },
         ) { item ->
@@ -58,7 +58,7 @@ fun SettingsScreen(
 }
 
 @Composable
-fun SettingButton(item: SettingButton) {
+fun SettingButton(item: ButtonElement) {
     Row (
         modifier = Modifier
             .fillMaxWidth()
@@ -74,6 +74,6 @@ fun SettingButton(item: SettingButton) {
                 .padding(10.dp)
                 .weight(2f)
         )
-        item.Icon()
+        item.icon(item);
     }
 }
